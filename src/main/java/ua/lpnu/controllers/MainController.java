@@ -14,4 +14,10 @@ public class MainController {
         return "home";
     }
 
+    @GetMapping("/about")
+    public String about(@RequestParam(name="about", required=false, defaultValue="About us") String name, Model model) {
+        model.addAttribute("about", name);
+        return "about";
+    }
+
 }
