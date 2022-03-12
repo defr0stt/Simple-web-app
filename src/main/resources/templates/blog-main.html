@@ -11,6 +11,14 @@
     <!--th:insert="..." використовується для вставки певних блоків-->
     <header th:insert="blocks/header :: header"></header>
 
-    <div class="container mt-5"></div>
+    <div class="container mt-5">
+        <!--цикл для виводу інформації про кожну з статей-->
+        <div th:each="element : ${posts}" class="alert alert-info mt-2">
+            <h3 th:text="${element.getTitle()}"></h3>
+            <p th:text="${element.getAnons()}"></p>
+            <a th:href="'/blog/' + ${element.getId()}">More details</a>
+        </div>
+    </div>
+
 </body>
 </html>
